@@ -1,0 +1,5 @@
+[user]
+    email = haavard.ae@gmail.com
+[core]
+    excludesfile = /Users/estensen/.gitignore_global
+
