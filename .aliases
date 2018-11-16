@@ -7,3 +7,14 @@ alias dl="cd ~/Downloads"
 # Shortcuts
 alias ae="deactivate &> /dev/null; source ./venv/bin/activate"
 alias de="deactivate"
+
+# Python
+export PYTHONDONTWRITEBYTECODE=1
+alias python="python3"
+alias ae="deactivate &> /dev/null; source ./venv/bin/activate"
+alias pes="pipenv shell"
+alias de="deactivate"
+
+# Git
+alias hpr="hub pull-request"
+
