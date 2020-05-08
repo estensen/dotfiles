@@ -9,7 +9,6 @@ alias ae="deactivate &> /dev/null; source ./venv/bin/activate"
 alias de="deactivate"
 
 # Python
-export PYTHONDONTWRITEBYTECODE=1
 alias python="python3"
 alias ae="deactivate &> /dev/null; source ./venv/bin/activate"
 alias pes="pipenv shell"
