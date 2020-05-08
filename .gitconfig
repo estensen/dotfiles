@@ -3,3 +3,7 @@
     email = haavard.ae@gmail.com
 [core]
     excludesfile = /Users/estensen/.gitignore_global
+    editor = vim
+    autocrlf = input
+[credential]
+    helper = osxkeychain
