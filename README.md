@@ -4,7 +4,7 @@
 
 Pull latest version and update local dotfiles
 ```
-git clone https://github.com/mathiasbynens/dotfiles.git && cd dotfiles && source bootstrap.sh
+git clone https://github.com/estensen/dotfiles.git && cd dotfiles && source bootstrap.sh
 ```
 
 Set sensible macOS defaults
