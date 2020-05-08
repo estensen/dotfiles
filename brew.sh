@@ -22,15 +22,6 @@ if ! fgrep -q "${BREW_PREFIX}/bin/bash" /etc/shells; then
   chsh -s "${BREW_PREFIX}/bin/bash";
 fi;
 
-brew install wget
-brew install gnupg
-brew install vim
-brew install grep
-brew install openssh
-brew install git
-brew install gibo
-
-brew cask install alfred
 brew cask install dropbox
 brew cask install firefox
 brew cask install google-chrome
