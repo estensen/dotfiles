@@ -4,10 +4,6 @@
 alias d="cd ~/Developer"
 alias dl="cd ~/Downloads"
 
-# Shortcuts
-alias ae="deactivate &> /dev/null; source ./venv/bin/activate"
-alias de="deactivate"
-
 # Python
 alias python="python3"
 alias ae="deactivate &> /dev/null; source ./venv/bin/activate"
