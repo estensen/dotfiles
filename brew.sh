@@ -22,10 +22,21 @@ if ! fgrep -q "${BREW_PREFIX}/bin/bash" /etc/shells; then
   chsh -s "${BREW_PREFIX}/bin/bash";
 fi;
 
+brew install jq
+brew install kubernetes-cli
+brew install kubectx
+
+brew cask install docker
 brew cask install dropbox
 brew cask install firefox
+brew cask install goland
 brew cask install google-chrome
+brew cask install iterm2
+brew cask install pycharm
+brew cask install slack
+brew cask install spectacle
 brew cask install spotify
+brew cask install visual-studio-code
 
 # Remove outdated versions from the cellar.
 brew cleanup
