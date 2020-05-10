@@ -25,6 +25,7 @@ fi;
 brew install jq
 brew install kubernetes-cli
 brew install kubectx
+brew install romkatv/powerlevel10k/powerlevel10k
 
 brew cask install docker
 brew cask install dropbox
