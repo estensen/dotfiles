@@ -7,3 +7,5 @@
     autocrlf = input
 [credential]
     helper = osxkeychain
+[includeIf "gitdir:~/Developer/vipps/"]
+	path = ~/.gitconfig.vipps
