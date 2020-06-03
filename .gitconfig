@@ -1,11 +1,11 @@
 [user]
-    name = Håvard Anda Estensen
-    email = haavard.ae@gmail.com
+	name = Håvard Anda Estensen
+	email = haavard.ae@gmail.com
 [core]
-    excludesfile = /Users/estensen/.gitignore_global
-    editor = vim
-    autocrlf = input
+	excludesfile = /Users/estensen/.gitignore_global
+	editor = vim
+	autocrlf = input
 [credential]
-    helper = osxkeychain
+	helper = osxkeychain
 [includeIf "gitdir:~/Developer/vipps/"]
 	path = ~/.gitconfig.vipps
