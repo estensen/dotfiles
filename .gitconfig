@@ -9,3 +9,5 @@
 	helper = osxkeychain
 [includeIf "gitdir:~/Developer/vipps/"]
 	path = ~/.gitconfig.vipps
+[pull]
+	rebase = true
