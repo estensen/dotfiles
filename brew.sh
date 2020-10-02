@@ -24,6 +24,7 @@ brew install go-task/tap/go-task
 brew install jq
 brew install kubernetes-cli
 brew install kubectx
+brew install pyenv
 brew install romkatv/powerlevel10k/powerlevel10k
 
 brew cask install docker
