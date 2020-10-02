@@ -19,6 +19,7 @@ if ! fgrep -q "${BREW_PREFIX}/bin/bash" /etc/shells; then
   chsh -s "${BREW_PREFIX}/bin/bash";
 fi;
 
+brew install gh
 brew install jq
 brew install kubernetes-cli
 brew install kubectx
