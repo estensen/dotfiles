@@ -27,6 +27,9 @@ brew install kubectx
 brew install pyenv
 brew install romkatv/powerlevel10k/powerlevel10k
 
+# YubiKey
+brew install gnupg yubikey-personalization hopenpgp-tools ykman pinentry-mac
+
 brew cask install docker
 brew cask install dropbox
 brew cask install firefox
