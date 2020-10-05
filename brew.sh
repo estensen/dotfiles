@@ -26,6 +26,7 @@ brew install kubernetes-cli
 brew install kubectx
 brew install pyenv
 brew install romkatv/powerlevel10k/powerlevel10k
+brew install wget
 
 # YubiKey
 brew install gnupg yubikey-personalization hopenpgp-tools ykman pinentry-mac
