@@ -10,11 +10,6 @@ source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Option arrow key navigation
-# "Natural Text Editing" in iterm2
-#bindkey "^[^[[D" backward-word
-#bindkey "^[^[[C" forward-word
-
 # History search
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
@@ -30,4 +25,9 @@ zstyle ':completion:*' matcher-list '' \
 autoload -Uz compinit
 compinit
 zstyle ':completion:*' menu select
+
 setopt COMPLETE_ALIASES
+
+if [ -f ~/.aliases ]; then
+. ~/.aliases
+fi
