@@ -26,6 +26,7 @@ brew install kubernetes-cli
 brew install kubectx
 brew install pyenv
 brew install romkatv/powerlevel10k/powerlevel10k
+brew install tfenv
 brew install terraform
 brew install wget
 
