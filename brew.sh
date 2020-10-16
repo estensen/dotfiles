@@ -20,6 +20,7 @@ if ! fgrep -q "${BREW_PREFIX}/bin/bash" /etc/shells; then
 fi;
 
 brew install gh
+brew install go
 brew install go-task/tap/go-task
 brew install jq
 brew install kubernetes-cli
