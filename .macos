@@ -27,8 +27,8 @@ defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 # Set fast keyboard repeat
-defaults write NSGlobalDomain KeyRepeat -int 3
-defaults write NSGlobalDomain InitialKeyRepeat -int 20
+defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
 ###############################################################################
 # Screen                                                                      #
