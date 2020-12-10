@@ -31,3 +31,6 @@ alias gst='git status'
 alias gsta='git stash push'
 alias gstd='git stash drop'
 alias gstp='git stash pop'
+
+# Other
+alias tf='terraform'
