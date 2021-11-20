@@ -23,8 +23,6 @@ brew install gh
 brew install go
 brew install go-task/tap/go-task
 brew install jq
-brew install kubernetes-cli
-brew install kubectx
 brew install postman
 brew install pyenv
 brew install romkatv/powerlevel10k/powerlevel10k
@@ -38,10 +36,8 @@ brew install gnupg yubikey-personalization hopenpgp-tools ykman pinentry-mac
 brew cask install docker
 brew cask install dropbox
 brew cask install firefox
-brew cask install goland
 brew cask install google-chrome
 brew cask install iterm2
-brew cask install pycharm
 brew cask install slack
 brew cask install spectacle
 brew cask install spotify
