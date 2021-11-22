@@ -27,6 +27,7 @@ brew install wget
 # YubiKey
 brew install gnupg yubikey-personalization hopenpgp-tools ykman pinentry-mac
 
+brew install --cask cmake
 brew install --cask docker
 brew install --cask dropbox
 brew install --cask firefox
