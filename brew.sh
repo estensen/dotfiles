@@ -13,12 +13,6 @@ BREW_PREFIX=$(brew --prefix)
 brew install coreutils
 ln -s "${BREW_PREFIX}/bin/gsha256sum" "${BREW_PREFIX}/bin/sha256sum"
 
-# Switch to using brew-installed bash as default shell
-if ! fgrep -q "${BREW_PREFIX}/bin/bash" /etc/shells; then
-  echo "${BREW_PREFIX}/bin/bash" | sudo tee -a /etc/shells;
-  chsh -s "${BREW_PREFIX}/bin/bash";
-fi;
-
 brew install gh
 brew install go
 brew install go-task/tap/go-task
