@@ -33,15 +33,15 @@ brew install wget
 # YubiKey
 brew install gnupg yubikey-personalization hopenpgp-tools ykman pinentry-mac
 
-brew cask install docker
-brew cask install dropbox
-brew cask install firefox
-brew cask install google-chrome
-brew cask install iterm2
-brew cask install slack
-brew cask install spectacle
-brew cask install spotify
-brew cask install visual-studio-code
+brew install --cask docker
+brew install --cask dropbox
+brew install --cask firefox
+brew install --cask google-chrome
+brew install --cask iterm2
+brew install --cask slack
+brew install --cask spectacle
+brew install --cask spotify
+brew install --cask visual-studio-code
 
 # Remove outdated versions from the cellar.
 brew cleanup
