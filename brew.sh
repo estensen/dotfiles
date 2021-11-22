@@ -14,6 +14,7 @@ brew install coreutils
 ln -s "${BREW_PREFIX}/bin/gsha256sum" "${BREW_PREFIX}/bin/sha256sum"
 
 brew install gh
+brew install git-lfs
 brew install go
 brew install go-task/tap/go-task
 brew install jq
