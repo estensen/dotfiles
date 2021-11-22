@@ -37,5 +37,8 @@ brew install --cask spectacle
 brew install --cask spotify
 brew install --cask visual-studio-code
 
+brew tap homebrew/cask-fonts
+brew install --cask font-fira-code
+
 # Remove outdated versions from the cellar.
 brew cleanup
