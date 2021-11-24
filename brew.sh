@@ -13,6 +13,7 @@ BREW_PREFIX=$(brew --prefix)
 brew install coreutils
 ln -s "${BREW_PREFIX}/bin/gsha256sum" "${BREW_PREFIX}/bin/sha256sum"
 
+brew install doxygen
 brew install gh
 brew install git-lfs
 brew install go
