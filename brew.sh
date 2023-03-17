@@ -23,6 +23,7 @@ brew install jq
 brew install ninja
 brew install postman
 brew install pyenv
+brew install ripgrep
 brew install romkatv/powerlevel10k/powerlevel10k
 brew install tfenv
 brew install terraform
