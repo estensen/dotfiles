@@ -27,7 +27,7 @@ brew install postman
 brew install pyenv
 brew install ripgrep
 brew install rust
-brew install romkatv/powerlevel10k/powerlevel10k
+brew install powerlevel10k
 brew install tfenv
 brew install terraform
 brew install tree
