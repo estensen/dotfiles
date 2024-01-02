@@ -26,6 +26,7 @@ brew install ninja
 brew install postman
 brew install pre-commit
 brew install pyenv
+brew install redis
 brew install ripgrep
 brew install rust
 brew install powerlevel10k
