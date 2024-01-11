@@ -30,8 +30,9 @@ brew install redis
 brew install ripgrep
 brew install rust
 brew install powerlevel10k
-brew install tfenv
 brew install terraform
+brew install tfenv
+brew install tflint
 brew install tree
 brew install wget
 
