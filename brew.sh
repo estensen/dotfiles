@@ -23,6 +23,7 @@ brew install go-task/tap/go-task
 brew install jq
 brew install localstack/tap/localstack-cli
 brew install ninja
+brew install node
 brew install postman
 brew install pre-commit
 brew install pyenv
