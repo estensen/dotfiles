@@ -39,6 +39,8 @@ alias gstp='git stash pop'
 alias gst='git status'
 alias gl='git pull'
 alias gcm='git checkout $(git_main_branch)'
+alias ga='git add'
+alias gaa='git add --all'
 
 
 # Check if main exists and use instead of master
