@@ -24,6 +24,7 @@ brew install jq
 brew install localstack/tap/localstack-cli
 brew install ninja
 brew install node
+brew install postgresql
 brew install postman
 brew install pre-commit
 brew install pyenv
