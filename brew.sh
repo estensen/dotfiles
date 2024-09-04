@@ -15,6 +15,7 @@ ln -s "${BREW_PREFIX}/bin/gsha256sum" "${BREW_PREFIX}/bin/sha256sum"
 
 brew install act
 brew install clang-format
+brew install cmake
 brew install doxygen
 brew install gh
 brew install git-lfs
@@ -27,6 +28,7 @@ brew install node
 brew install postgresql
 brew install postman
 brew install pre-commit
+brew install protobuf
 brew install pyenv
 brew install redis
 brew install ripgrep
@@ -41,7 +43,6 @@ brew install wget
 # YubiKey
 brew install gnupg yubikey-personalization hopenpgp-tools ykman pinentry-mac
 
-brew install --cask cmake
 brew install --cask docker
 brew install --cask dropbox
 brew install --cask firefox
