@@ -31,3 +31,5 @@ setopt COMPLETE_ALIASES
 if [ -f ~/.aliases ]; then
 . ~/.aliases
 fi
+
+export RUSTC_WRAPPER="sccache"
