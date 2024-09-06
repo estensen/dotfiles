@@ -30,6 +30,7 @@ brew install postman
 brew install pre-commit
 brew install protobuf
 brew install pyenv
+brew install sccache
 brew install redis
 brew install ripgrep
 brew install rust
