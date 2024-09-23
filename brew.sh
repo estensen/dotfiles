@@ -23,6 +23,7 @@ brew install go
 brew install go-task/tap/go-task
 brew install graphviz
 brew install jq
+brew install just
 brew install localstack/tap/localstack-cli
 brew install ninja
 brew install node
