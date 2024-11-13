@@ -14,6 +14,7 @@ alias de="deactivate"
 alias tf='terraform'
 
 # Git
+alias gb='git branch'
 alias gcmsg='git commit --message'
 alias gco='git checkout'
 alias gcb='git checkout -b'
