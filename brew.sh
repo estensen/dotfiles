@@ -26,21 +26,15 @@ brew install graphviz
 brew install jq
 brew install just
 brew install localstack/tap/localstack-cli
-brew install ninja
 brew install node
 brew install postgresql
-brew install postman
 brew install pre-commit
 brew install protobuf
-brew install pyenv
 brew install sccache
 brew install redis
 brew install ripgrep
 brew install rust
 brew install powerlevel10k
-brew install terraform
-brew install tfenv
-brew install tflint
 brew install tree
 brew install wget
 
