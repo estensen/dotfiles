@@ -14,6 +14,7 @@ brew install coreutils
 ln -s "${BREW_PREFIX}/bin/gsha256sum" "${BREW_PREFIX}/bin/sha256sum"
 
 brew install act
+brew install cargo-binstall
 brew install clang-format
 brew install cmake
 brew install doxygen
