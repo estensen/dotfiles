@@ -29,4 +29,5 @@ if [ -f ~/.aliases ]; then
 . ~/.aliases
 fi
 
+export GOPATH=$HOME/go
 export RUSTC_WRAPPER="sccache"
