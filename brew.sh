@@ -46,7 +46,7 @@ brew install --cask docker
 brew install --cask dropbox
 brew install --cask firefox
 brew install --cask google-chrome
-brew install --cask iterm2
+brew install --cask ghostty
 brew install --cask rectangle
 brew install --cask slack
 brew install --cask spotify

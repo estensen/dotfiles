@@ -16,8 +16,3 @@ Install Homebrew pkgs
 ```
 zsh brew.sh
 ```
-
-Switch to "natural" text editing in iTerm (option-delete to delete a word)
-```
-Preferences > Profiles > Keys > Presets... > Natural Text Editing
-```
