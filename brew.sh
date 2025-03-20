@@ -34,7 +34,6 @@ brew install protobuf
 brew install sccache
 brew install redis
 brew install ripgrep
-brew install rust
 brew install powerlevel10k
 brew install tree
 brew install wget
