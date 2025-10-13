@@ -17,6 +17,7 @@ brew install act
 brew install cargo-binstall
 brew install clang-format
 brew install cmake
+brew install codex
 brew install doxygen
 brew install gh
 brew install git-lfs
