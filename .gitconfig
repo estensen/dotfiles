@@ -2,7 +2,7 @@
 	name = Håvard Anda Winninge
 	email = haavard.ae@gmail.com
 [core]
-	excludesfile = /Users/estensen/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	editor = vim
 	autocrlf = input
 [credential]
