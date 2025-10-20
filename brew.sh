@@ -40,6 +40,28 @@ fi
 brew update
 brew upgrade
 
+install_cask() {
+  local cask_name="$1"
+  local app_bundle="${2:-}"
+
+  if brew list --cask --versions "${cask_name}" >/dev/null 2>&1; then
+    echo "Cask ${cask_name} already installed."
+    return 0
+  fi
+
+  if brew install --cask "${cask_name}"; then
+    return 0
+  fi
+
+  if [[ -n "${app_bundle}" && -d "/Applications/${app_bundle}.app" ]]; then
+    echo "Skipping ${cask_name}; /Applications/${app_bundle}.app already exists."
+    return 0
+  fi
+
+  echo "Failed to install cask ${cask_name}" >&2
+  return 1
+}
+
 # Handle renamed cask-fonts tap
 if brew tap | grep -q '^homebrew/homebrew-cask-fonts$'; then
   brew untap homebrew/homebrew-cask-fonts
@@ -59,7 +81,6 @@ brew install act
 brew install cargo-binstall
 brew install clang-format
 brew install cmake
-brew install codex
 brew install doxygen
 brew install gh
 brew install git-lfs
@@ -84,21 +105,21 @@ brew install wget
 # YubiKey
 brew install gnupg yubikey-personalization hopenpgp-tools ykman pinentry-mac
 
-brew install --cask docker
-brew install --cask dropbox
-brew install --cask firefox
-brew install --cask google-chrome
-brew install --cask ghostty
-brew install --cask rectangle
-brew install --cask slack
-brew install --cask spotify
-brew install --cask visual-studio-code
+install_cask docker Docker
+install_cask dropbox Dropbox
+install_cask firefox Firefox
+install_cask google-chrome "Google Chrome"
+install_cask ghostty Ghostty
+install_cask rectangle Rectangle
+install_cask slack Slack
+install_cask spotify Spotify
+install_cask visual-studio-code "Visual Studio Code"
 
 # Ensure font tap exists (new name)
 if ! brew tap | grep -q '^homebrew/cask-fonts$'; then
   brew tap homebrew/cask-fonts
 fi
-brew install --cask font-fira-code
+install_cask font-fira-code
 
 # Remove outdated versions from the cellar.
 brew cleanup

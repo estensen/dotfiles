@@ -24,5 +24,24 @@ rsync --exclude ".git/" \
 	-avh --no-perms . ~;
 
 export DISABLE_UPDATE_PROMPT=true
-source ~/.zshrc;
+if command -v zsh >/dev/null 2>&1; then
+  zsh -ic 'exit'
+fi
 unset DISABLE_UPDATE_PROMPT
+
+install_global_npm_package() {
+  local package="$1"
+  if ! command -v npm >/dev/null 2>&1; then
+    echo "npm not found; skipping global install of ${package}. Install Node (via nvm) and rerun bootstrap." >&2
+    return 0
+  fi
+
+  if npm list -g --depth=0 "${package}" >/dev/null 2>&1; then
+    echo "Global package ${package} already installed."
+  else
+    npm install -g "${package}"
+  fi
+}
+
+install_global_npm_package "@microsoft/rush"
+install_global_npm_package "@openai/codex"

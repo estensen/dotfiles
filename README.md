@@ -16,3 +16,8 @@ Install Homebrew pkgs
 ```
 zsh brew.sh
 ```
+
+Install global npm packages (rerun after Node is set up so `npm` is available)
+```
+zsh bootstrap.sh
+```
