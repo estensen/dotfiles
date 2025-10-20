@@ -36,6 +36,11 @@ fi
 brew update
 brew upgrade
 
+# Handle renamed cask-fonts tap
+if brew tap | grep -q '^homebrew/homebrew-cask-fonts$'; then
+  brew untap homebrew/homebrew-cask-fonts
+fi
+
 # Save Homebrew’s installed location.
 BREW_PREFIX=$(brew --prefix)
 
@@ -85,7 +90,10 @@ brew install --cask slack
 brew install --cask spotify
 brew install --cask visual-studio-code
 
-brew tap homebrew/cask-fonts
+# Ensure font tap exists (new name)
+if ! brew tap | grep -q '^homebrew/cask-fonts$'; then
+  brew tap homebrew/cask-fonts
+fi
 brew install --cask font-fira-code
 
 # Remove outdated versions from the cellar.
