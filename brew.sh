@@ -4,6 +4,35 @@
 if ! command -v brew >/dev/null 2>&1; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
+
+# Ensure the current shell knows about Homebrew (handles fresh installs too)
+if command -v brew >/dev/null 2>&1; then
+  BREW_EXEC="$(command -v brew)"
+elif [ -x "/opt/homebrew/bin/brew" ]; then
+  BREW_EXEC="/opt/homebrew/bin/brew"
+elif [ -x "/usr/local/bin/brew" ]; then
+  BREW_EXEC="/usr/local/bin/brew"
+else
+  echo "Homebrew installation did not succeed; brew command not found." >&2
+  exit 1
+fi
+
+eval "$(${BREW_EXEC} shellenv)"
+
+PROFILE_FILE="${HOME}/.zprofile"
+BREW_SHELLENV_LINE="eval \"\$($(dirname "${BREW_EXEC}")/brew shellenv)\""
+
+if [ ! -f "${PROFILE_FILE}" ]; then
+  touch "${PROFILE_FILE}"
+fi
+
+if ! grep -Fq "${BREW_SHELLENV_LINE}" "${PROFILE_FILE}"; then
+  {
+    printf '\n# Added by dotfiles brew bootstrap to set Homebrew environment\n'
+    printf '%s\n' "${BREW_SHELLENV_LINE}"
+  } >> "${PROFILE_FILE}"
+fi
+
 brew update
 brew upgrade
 
