@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Exit immediately on errors and unset variables; fail pipelines fast
+set -euo pipefail
+trap 'echo "brew.sh failed on line $LINENO" >&2' ERR
+
 # Install and upgrade Homebrew
 if ! command -v brew >/dev/null 2>&1; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"

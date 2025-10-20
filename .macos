@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Exit immediately on errors and unset variables; fail pipelines fast
+set -euo pipefail
+trap 'echo ".macos failed on line $LINENO" >&2' ERR
+
 # Ask for the admin password upfront
 sudo -v
 

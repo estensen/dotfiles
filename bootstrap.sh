@@ -1,3 +1,7 @@
+# Exit immediately on errors and unset variables; fail pipelines fast
+set -euo pipefail
+trap 'echo "bootstrap.sh failed on line $LINENO" >&2' ERR
+
 # Install oh-my-zsh if not already installed
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   export RUNZSH=no
