@@ -29,8 +29,17 @@ if [ -f ~/.aliases ]; then
 . ~/.aliases
 fi
 
+# GNU coreutils (replace macOS outdated utilities with GNU versions)
+if command -v brew >/dev/null 2>&1; then
+  BREW_PREFIX=$(brew --prefix)
+  if [[ -d "${BREW_PREFIX}/opt/coreutils/libexec/gnubin" ]]; then
+    export PATH="${BREW_PREFIX}/opt/coreutils/libexec/gnubin:$PATH"
+  fi
+fi
+
+# Go binaries
 export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
+export PATH="$PATH:$GOPATH/bin"
 if command -v sccache >/dev/null 2>&1; then
   export RUSTC_WRAPPER="sccache"
 fi
