@@ -39,7 +39,12 @@ defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 # Save screenshots to Dropbox
-defaults write com.apple.screencapture location -string "${HOME}/Dropbox/Screenshots"
+if [ -d "${HOME}/Dropbox" ]; then
+  mkdir -p "${HOME}/Dropbox/Screenshots"
+  defaults write com.apple.screencapture location -string "${HOME}/Dropbox/Screenshots"
+else
+  echo "Skipping screenshot location update; Dropbox folder not found."
+fi
 
 ###############################################################################
 # Finder                                                                      #
