@@ -15,6 +15,11 @@ zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
 
+# Add Homebrew completions to FPATH
+if command -v brew >/dev/null 2>&1; then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+fi
+
 # Allow for autocomplete to be case insensitive
 zstyle ':completion:*' matcher-list '' \
 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' \
@@ -24,6 +29,17 @@ compinit
 zstyle ':completion:*' menu select
 
 setopt COMPLETE_ALIASES
+
+# Shell completions for installed tools
+# GitHub CLI
+if command -v gh >/dev/null 2>&1; then
+  eval "$(gh completion -s zsh)"
+fi
+
+# Docker (if installed via Docker Desktop, completions may already be available)
+# Node/npm completions are already provided by Homebrew
+# Go completions are built into zsh
+# Rust/cargo completions would need rustup, which installs them automatically
 
 if [ -f ~/.aliases ]; then
 . ~/.aliases
