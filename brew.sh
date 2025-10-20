@@ -70,7 +70,7 @@ brew install graphviz
 brew install jq
 brew install just
 brew install localstack/tap/localstack-cli
-brew install node
+brew install nvm
 brew install postgresql
 brew install pre-commit
 brew install protobuf
@@ -102,3 +102,6 @@ brew install --cask font-fira-code
 
 # Remove outdated versions from the cellar.
 brew cleanup
+
+# Ensure NVM directory exists when installed via Homebrew.
+mkdir -p "${HOME}/.nvm"

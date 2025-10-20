@@ -47,6 +47,33 @@ if [ -f ~/.aliases ]; then
 . ~/.aliases
 fi
 
+# Node version manager
+export NVM_DIR="${HOME}/.nvm"
+if [ -s "${NVM_DIR}/nvm.sh" ]; then
+  source "${NVM_DIR}/nvm.sh"
+  if [ -s "${NVM_DIR}/bash_completion" ]; then
+    source "${NVM_DIR}/bash_completion"
+  fi
+
+  autoload -U add-zsh-hook
+  load-nvmrc() {
+    local nvmrc_path node_version
+    nvmrc_path="$(nvm_find_nvmrc)"
+    if [[ -n "${nvmrc_path}" ]]; then
+      node_version="$(nvm version "$(cat "${nvmrc_path}")")"
+      if [[ "${node_version}" == "N/A" ]]; then
+        nvm install
+      elif [[ "${node_version}" != "$(nvm version)" ]]; then
+        nvm use "${node_version}" >/dev/null
+      fi
+    elif [[ "$(nvm version)" != "$(nvm version default)" ]]; then
+      nvm use default >/dev/null
+    fi
+  }
+  add-zsh-hook chpwd load-nvmrc
+  load-nvmrc
+fi
+
 # GNU coreutils (replace macOS outdated utilities with GNU versions)
 if command -v brew >/dev/null 2>&1; then
   BREW_PREFIX=$(brew --prefix)
