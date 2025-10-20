@@ -19,4 +19,6 @@ rsync --exclude ".git/" \
 	--exclude "README.md" \
 	-avh --no-perms . ~;
 
+export DISABLE_UPDATE_PROMPT=true
 source ~/.zshrc;
+unset DISABLE_UPDATE_PROMPT
