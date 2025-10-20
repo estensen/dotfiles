@@ -31,5 +31,6 @@ fi
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
-export RUSTC_WRAPPER="sccache"
-
+if command -v sccache >/dev/null 2>&1; then
+  export RUSTC_WRAPPER="sccache"
+fi
