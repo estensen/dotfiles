@@ -115,11 +115,8 @@ install_cask slack Slack
 install_cask spotify Spotify
 install_cask visual-studio-code "Visual Studio Code"
 
-# Ensure font tap exists (new name)
-if ! brew tap | grep -q '^homebrew/cask-fonts$'; then
-  brew tap homebrew/cask-fonts
-fi
-install_cask font-fira-code
+# Install fonts (fonts are now in main homebrew-cask, no tap needed)
+install_cask font-fira-code "FiraCode"
 
 # Remove outdated versions from the cellar.
 brew cleanup

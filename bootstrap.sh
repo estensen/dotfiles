@@ -29,19 +29,6 @@ if command -v zsh >/dev/null 2>&1; then
 fi
 unset DISABLE_UPDATE_PROMPT
 
-install_global_npm_package() {
-  local package="$1"
-  if ! command -v npm >/dev/null 2>&1; then
-    echo "npm not found; skipping global install of ${package}. Install Node (via nvm) and rerun bootstrap." >&2
-    return 0
-  fi
-
-  if npm list -g --depth=0 "${package}" >/dev/null 2>&1; then
-    echo "Global package ${package} already installed."
-  else
-    npm install -g "${package}"
-  fi
-}
-
-install_global_npm_package "@microsoft/rush"
-install_global_npm_package "@openai/codex"
+# Note: npm package installation is now handled by setup.sh
+# If you're running bootstrap.sh standalone and need npm packages:
+# npm install -g @microsoft/rush @openai/codex @anthropic-ai/claude-code
