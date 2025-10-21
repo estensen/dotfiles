@@ -93,7 +93,7 @@ brew install jq
 brew install just
 brew install localstack/tap/localstack-cli
 brew install nvm
-brew install postgresql
+brew install postgresql@18
 brew install pre-commit
 brew install protobuf
 brew install sccache
