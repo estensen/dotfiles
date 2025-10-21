@@ -42,7 +42,7 @@ That's it! The script will guide you through the rest.
 - Firefox, Google Chrome
 - Visual Studio Code
 - Docker Desktop
-- Slack, Spotify, Dropbox
+- Slack, Spotify, Dropbox, Notion
 - Ghostty (terminal)
 - Rectangle (window management)
 

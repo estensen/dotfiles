@@ -109,6 +109,7 @@ install_cask docker Docker
 install_cask dropbox Dropbox
 install_cask firefox Firefox
 install_cask google-chrome "Google Chrome"
+install_cask notion Notion
 install_cask ghostty Ghostty
 install_cask rectangle Rectangle
 install_cask slack Slack
