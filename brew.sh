@@ -77,6 +77,7 @@ if [ ! -e "${BREW_PREFIX}/bin/sha256sum" ]; then
   ln -s "${BREW_PREFIX}/bin/gsha256sum" "${BREW_PREFIX}/bin/sha256sum"
 fi
 
+brew install 1password-cli
 brew install act
 brew install cargo-binstall
 brew install clang-format

@@ -34,7 +34,7 @@ That's it! The script will guide you through the rest.
 
 ### CLI Utilities
 - coreutils, wget, tree, jq, ripgrep
-- gh (GitHub CLI), pre-commit
+- gh (GitHub CLI), 1Password CLI, pre-commit
 - go, cmake, protobuf
 - Claude Code CLI, Codex CLI
 
