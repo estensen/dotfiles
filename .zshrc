@@ -5,6 +5,17 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Add Homebrew completions to FPATH before oh-my-zsh loads
+if command -v brew >/dev/null 2>&1; then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+fi
+
+# Completion settings (before oh-my-zsh)
+zstyle ':completion:*' matcher-list '' \
+'m:{[:lower:][:upper:]}={[:upper:][:lower:]}' \
+'+l:|?=** r:|?=**'
+zstyle ':completion:*' menu select
+
 export ZSH="${ZSH:-$HOME/.oh-my-zsh}"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(git)
@@ -17,21 +28,6 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
-
-# Add Homebrew completions to FPATH
-if command -v brew >/dev/null 2>&1; then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-fi
-
-# Allow for autocomplete to be case insensitive
-zstyle ':completion:*' matcher-list '' \
-'m:{[:lower:][:upper:]}={[:upper:][:lower:]}' \
-'+l:|?=** r:|?=**'
-autoload -Uz compinit
-compinit
-zstyle ':completion:*' menu select
-
-setopt COMPLETE_ALIASES
 
 # Shell completions for installed tools
 # GitHub CLI
