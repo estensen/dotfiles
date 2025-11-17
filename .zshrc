@@ -85,3 +85,12 @@ export PATH="$PATH:$GOPATH/bin"
 if command -v sccache >/dev/null 2>&1; then
   export RUSTC_WRAPPER="sccache"
 fi
+
+# Codex wrapper
+cdx() {
+  if [[ "$1" == "update" ]]; then
+    npm install -g @openai/codex@latest
+  else
+    codex -m gpt-5-codex --yolo -c model_reasoning_effort="high" -c model_reasoning_summary_format=experimental --search "$@"
+  fi
+}
