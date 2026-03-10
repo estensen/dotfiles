@@ -30,6 +30,10 @@ alias gp='git push'
 alias gcl='git clone --recurse-submodules'
 alias glgg='git log --graph'
 
+# Claude Code
+alias cc='claude --dangerously-skip-permissions'
+alias ccw='cc --worktree'
+
 
 # Check if main exists and use instead of master
 function git_main_branch() {
