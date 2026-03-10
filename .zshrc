@@ -1,3 +1,6 @@
+# Skip interactive setup when no TTY (e.g., Claude Code, IDE subshells)
+[[ ! -t 0 ]] && return
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -71,17 +74,7 @@ if [ -s "${NVM_DIR}/nvm.sh" ]; then
   load-nvmrc
 fi
 
-# GNU coreutils (replace macOS outdated utilities with GNU versions)
-if command -v brew >/dev/null 2>&1; then
-  BREW_PREFIX=$(brew --prefix)
-  if [[ -d "${BREW_PREFIX}/opt/coreutils/libexec/gnubin" ]]; then
-    export PATH="${BREW_PREFIX}/opt/coreutils/libexec/gnubin:$PATH"
-  fi
-fi
-
-# Go binaries
-export GOPATH=$HOME/go
-export PATH="$PATH:$GOPATH/bin"
+# Rust build cache
 if command -v sccache >/dev/null 2>&1; then
   export RUSTC_WRAPPER="sccache"
 fi
@@ -91,6 +84,12 @@ cdx() {
   if [[ "$1" == "update" ]]; then
     npm install -g @openai/codex@latest
   else
-    codex -m gpt-5-codex --yolo -c model_reasoning_effort="high" -c model_reasoning_summary_format=experimental --search "$@"
+    codex --enable multi_agent --yolo -m gpt-5.4 -c model_reasoning_effort="xhigh" -c model_reasoning_summary_format=experimental --search "$@"
   fi
 }
+
+# Powerlevel10k config
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Machine-specific overrides (not tracked by git)
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
