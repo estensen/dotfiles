@@ -101,6 +101,7 @@ brew install sccache
 brew install redis
 brew install ripgrep
 brew install powerlevel10k
+brew install poppler
 brew install tree
 brew install wget
 
