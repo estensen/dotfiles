@@ -7,7 +7,9 @@
 	autocrlf = input
 [credential]
 	helper = osxkeychain
+[init]
+	defaultBranch = main
 [pull]
 	rebase = true
-[url "git@github.com:"]
-	insteadOf = https://github.com/
+[include]
+	path = ~/.gitconfig.local

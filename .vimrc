@@ -31,5 +31,5 @@ if has('syntax')
     silent! colorscheme solarized
 
     set cursorline colorcolumn=80
-end
+endif
 

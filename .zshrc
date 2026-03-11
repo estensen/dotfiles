@@ -9,9 +9,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Add Homebrew completions to FPATH before oh-my-zsh loads
-if command -v brew >/dev/null 2>&1; then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-fi
+FPATH="/opt/homebrew/share/zsh/site-functions:${FPATH}"
 
 # Completion settings (before oh-my-zsh)
 zstyle ':completion:*' matcher-list '' \
@@ -21,7 +19,7 @@ zstyle ':completion:*' menu select
 
 export ZSH="${ZSH:-$HOME/.oh-my-zsh}"
 ZSH_THEME="powerlevel10k/powerlevel10k"
-plugins=(git)
+plugins=()
 source "$ZSH/oh-my-zsh.sh"
 
 # History search
@@ -32,46 +30,22 @@ zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
 
-# Shell completions for installed tools
-# GitHub CLI
-if command -v gh >/dev/null 2>&1; then
-  eval "$(gh completion -s zsh)"
+if [[ -f ~/.aliases ]]; then
+  . ~/.aliases
 fi
 
-# Docker (if installed via Docker Desktop, completions may already be available)
-# Node/npm completions are already provided by Homebrew
-# Go completions are built into zsh
-# Rust/cargo completions would need rustup, which installs them automatically
-
-if [ -f ~/.aliases ]; then
-. ~/.aliases
-fi
-
-# Node version manager
+# Lazy-load nvm: define placeholder functions that source nvm on first call
 export NVM_DIR="${HOME}/.nvm"
-if [ -s "${NVM_DIR}/nvm.sh" ]; then
-  source "${NVM_DIR}/nvm.sh"
-  if [ -s "${NVM_DIR}/bash_completion" ]; then
-    source "${NVM_DIR}/bash_completion"
-  fi
-
-  autoload -U add-zsh-hook
-  load-nvmrc() {
-    local nvmrc_path node_version
-    nvmrc_path="$(nvm_find_nvmrc)"
-    if [[ -n "${nvmrc_path}" ]]; then
-      node_version="$(nvm version "$(cat "${nvmrc_path}")")"
-      if [[ "${node_version}" == "N/A" ]]; then
-        nvm install
-      elif [[ "${node_version}" != "$(nvm version)" ]]; then
-        nvm use "${node_version}" >/dev/null
-      fi
-    elif [[ "$(nvm version)" != "$(nvm version default)" ]]; then
-      nvm use default >/dev/null
-    fi
+if [[ -s "${NVM_DIR}/nvm.sh" ]]; then
+  _lazy_load_nvm() {
+    unset -f nvm node npm npx
+    source "${NVM_DIR}/nvm.sh"
+    [[ -s "${NVM_DIR}/bash_completion" ]] && source "${NVM_DIR}/bash_completion"
   }
-  add-zsh-hook chpwd load-nvmrc
-  load-nvmrc
+  nvm()  { _lazy_load_nvm; nvm "$@"; }
+  node() { _lazy_load_nvm; node "$@"; }
+  npm()  { _lazy_load_nvm; npm "$@"; }
+  npx()  { _lazy_load_nvm; npx "$@"; }
 fi
 
 # Rust build cache
@@ -84,7 +58,11 @@ cdx() {
   if [[ "$1" == "update" ]]; then
     npm install -g @openai/codex@latest
   else
-    codex --enable multi_agent --yolo -m gpt-5.4 -c model_reasoning_effort="xhigh" -c model_reasoning_summary_format=experimental --search "$@"
+    codex --enable multi_agent --yolo \
+      -m "${CODEX_MODEL:-gpt-5.4}" \
+      -c model_reasoning_effort="${CODEX_REASONING:-xhigh}" \
+      -c model_reasoning_summary_format=experimental \
+      --search "$@"
   fi
 }
 

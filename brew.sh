@@ -108,7 +108,6 @@ brew install wget
 # YubiKey
 brew install gnupg yubikey-personalization hopenpgp-tools ykman pinentry-mac
 
-install_cask docker Docker
 install_cask dropbox Dropbox
 install_cask firefox Firefox
 install_cask google-chrome "Google Chrome"

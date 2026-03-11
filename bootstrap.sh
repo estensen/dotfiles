@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # Exit immediately on errors and unset variables; fail pipelines fast
 set -euo pipefail
 trap 'echo "bootstrap.sh failed on line $LINENO" >&2' ERR

@@ -38,10 +38,6 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 10
 # Screen                                                                      #
 ###############################################################################
 
-# Require password immediately after sleep or screen saver begins
-defaults write com.apple.screensaver askForPassword -int 1
-defaults write com.apple.screensaver askForPasswordDelay -int 0
-
 # Save screenshots to Dropbox
 if [ -d "${HOME}/Dropbox" ]; then
   mkdir -p "${HOME}/Dropbox/Screenshots"
@@ -110,4 +106,4 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 for app in "Dock" "Finder" "SystemUIServer"; do
   killall "${app}" &> /dev/null
 done
-echo "Done. Note that some of these changes require a logout/restart to take effect."	
+echo "Done. Note that some of these changes require a logout/restart to take effect."

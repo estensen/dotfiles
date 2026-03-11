@@ -13,5 +13,17 @@ Thumbs.db
 .Spotlight-V100
 .Trashes
 
-# Pycharm/intellij
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Editor
 .idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Node
+node_modules/
