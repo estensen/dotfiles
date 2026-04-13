@@ -7,6 +7,9 @@
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
 
+# Claude Code: use 400k context window to reduce prompt cache miss costs
+export CLAUDE_CODE_AUTO_COMPACT_WINDOW=400000
+
 # GNU coreutils
 if [[ -d "/opt/homebrew/opt/coreutils/libexec/gnubin" ]]; then
   export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
