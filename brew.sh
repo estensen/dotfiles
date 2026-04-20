@@ -92,6 +92,7 @@ brew install graphviz
 brew install jq
 brew install just
 brew install localstack/tap/localstack-cli
+brew install lychee
 brew install nvm
 brew install orbstack
 brew install postgresql@18
