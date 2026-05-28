@@ -20,6 +20,12 @@ zstyle ':completion:*' menu select
 export ZSH="${ZSH:-$HOME/.oh-my-zsh}"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=()
+
+# Startup-speed knobs (must be set before sourcing oh-my-zsh.sh)
+ZSH_DISABLE_COMPFIX=true            # skip the per-startup compaudit security scan (~10ms)
+DISABLE_MAGIC_FUNCTIONS=true        # skip slow paste / url-quote ZLE wrappers
+zstyle ':omz:update' mode disabled  # no auto-update check on startup (~5ms)
+
 source "$ZSH/oh-my-zsh.sh"
 
 # History search
@@ -69,5 +75,12 @@ cdx() {
 # Powerlevel10k config
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Machine-specific overrides (not tracked by git)
+# Claude Code subagent default model — set to Haiku so mechanical Agent
+# dispatches run cheap by default. Skills with `model:` frontmatter and
+# Agent calls with explicit `model:` override this. A machine can override
+# or `unset` this in ~/.zshrc.local below.
+export CLAUDE_CODE_SUBAGENT_MODEL=claude-haiku-4-5-20251001
+
+# Machine-specific overrides (not tracked by git). Sourced LAST so local
+# settings win over everything above.
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
