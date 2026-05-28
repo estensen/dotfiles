@@ -6,19 +6,8 @@ trap 'echo "bootstrap.sh failed on line $LINENO" >&2' ERR
 
 DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
 
-# Install oh-my-zsh if not already installed
-if [ ! -d "$HOME/.oh-my-zsh" ]; then
-  export RUNZSH=no
-  export KEEP_ZSHRC=yes
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-  unset RUNZSH
-  unset KEEP_ZSHRC
-fi
-
-# Install powerlevel10k theme if not already installed
-if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" ]; then
-  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
-fi
+# Powerlevel10k is installed via Homebrew (see brew.sh) and sourced directly by
+# .zshrc from $(brew --prefix)/share/powerlevel10k — no oh-my-zsh needed.
 
 # Symlink dotfiles
 DOTFILES=(

@@ -330,7 +330,7 @@ print_summary() {
   echo -e "  ✓ Xcode Command Line Tools"
   echo -e "  ✓ SSH key configured"
   echo -e "  ✓ Homebrew and packages"
-  echo -e "  ✓ Oh My Zsh with Powerlevel10k"
+  echo -e "  ✓ Powerlevel10k prompt"
   echo -e "  ✓ Dotfiles synced"
   echo -e "  ✓ nvm and Node.js LTS"
   echo -e "  ✓ Global npm packages (rush, codex, claude-code)"

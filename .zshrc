@@ -17,16 +17,42 @@ zstyle ':completion:*' matcher-list '' \
 '+l:|?=** r:|?=**'
 zstyle ':completion:*' menu select
 
-export ZSH="${ZSH:-$HOME/.oh-my-zsh}"
-ZSH_THEME="powerlevel10k/powerlevel10k"
-plugins=()
+# Completion system. Rebuild the dump (with security audit) at most once a day;
+# otherwise fast-load the cached dump with -C.
+autoload -Uz compinit bashcompinit
+() {
+  emulate -L zsh
+  local zdump="${ZDOTDIR:-$HOME}/.zcompdump"
+  local -a fresh=( "$zdump"(Nmh-24) )   # dump modified within the last 24h
+  if (( $#fresh )); then compinit -C -d "$zdump"; else compinit -i -d "$zdump"; fi
+}
+bashcompinit
 
-# Startup-speed knobs (must be set before sourcing oh-my-zsh.sh)
-ZSH_DISABLE_COMPFIX=true            # skip the per-startup compaudit security scan (~10ms)
-DISABLE_MAGIC_FUNCTIONS=true        # skip slow paste / url-quote ZLE wrappers
-zstyle ':omz:update' mode disabled  # no auto-update check on startup (~5ms)
+# History (matches the old oh-my-zsh lib/history.zsh defaults)
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=50000
+SAVEHIST=10000
+setopt extended_history hist_expire_dups_first hist_ignore_dups hist_ignore_space \
+       hist_verify inc_append_history share_history
 
-source "$ZSH/oh-my-zsh.sh"
+# Interactive options + directory navigation (oh-my-zsh parity)
+setopt interactive_comments auto_pushd pushd_ignore_dups pushd_silent
+alias ..='cd ..' ...='cd ../..' ....='cd ../../..'
+alias md='mkdir -p'
+
+# Key bindings (Home/End/Delete/word-nav — previously from oh-my-zsh)
+bindkey '^[[H' beginning-of-line '^[OH' beginning-of-line '^[[1~' beginning-of-line
+bindkey '^[[F' end-of-line       '^[OF' end-of-line       '^[[4~' end-of-line
+bindkey '^[[3~' delete-char
+bindkey '^[[1;5C' forward-word   '^[[1;5D' backward-word
+bindkey '^[[Z' reverse-menu-complete
+bindkey '^?' backward-delete-char
+
+# Powerlevel10k prompt, sourced directly (brew install powerlevel10k)
+for _p10k_dir in /opt/homebrew/share/powerlevel10k /usr/local/share/powerlevel10k; do
+  [[ -r "$_p10k_dir/powerlevel10k.zsh-theme" ]] && { source "$_p10k_dir/powerlevel10k.zsh-theme"; break }
+done
+unset _p10k_dir
 
 # History search
 autoload -U up-line-or-beginning-search

@@ -22,7 +22,7 @@ That's it! The script will guide you through the rest.
 - **Xcode Command Line Tools** - Installed automatically
 - **SSH Key** - Generated and configured automatically (ed25519)
 - **Homebrew** - Package manager for macOS
-- **Oh My Zsh** - Enhanced terminal with Powerlevel10k theme
+- **Powerlevel10k** - Zsh prompt (installed via Homebrew, no framework)
 
 ### Development Tools
 - **nvm** - Node Version Manager
@@ -85,7 +85,7 @@ After setup completes:
 ## What the Scripts Do
 
 - **setup.sh** - Main orchestration script (recommended)
-- **bootstrap.sh** - Installs Oh My Zsh, Powerlevel10k, syncs dotfiles
+- **bootstrap.sh** - Symlinks dotfiles (Powerlevel10k comes from brew.sh)
 - **brew.sh** - Installs Homebrew and all packages/casks
 - **.macos** - Configures macOS system preferences
 
