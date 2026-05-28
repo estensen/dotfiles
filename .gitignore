@@ -1,0 +1,11 @@
+# Local machine-specific overrides (secrets, per-host config) — never tracked
+*.local
+.gitconfig.local
+.zshrc.local
+.zshenv.local
+
+# Claude Code local state (permissions, worktrees)
+.claude/
+
+# macOS cruft
+.DS_Store
