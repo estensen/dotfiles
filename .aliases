@@ -32,6 +32,9 @@ alias glgg='git log --graph'
 alias cc='claude --dangerously-skip-permissions'
 alias ccw='cc --worktree'
 
+# Gemini CLI
+alias gm='gemini --approval-mode=yolo --skip-trust'
+
 
 # Check if main exists and use instead of master
 function git_main_branch() {
