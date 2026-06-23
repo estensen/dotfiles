@@ -91,11 +91,22 @@ cdx() {
     npm install -g @openai/codex@latest
   else
     codex --enable multi_agent --yolo \
-      -m "${CODEX_MODEL:-gpt-5.4}" \
       -c model_reasoning_effort="${CODEX_REASONING:-xhigh}" \
       -c model_reasoning_summary_format=experimental \
       --search "$@"
   fi
+}
+
+# Restore a sane PATH in-place after something clobbers it mid-session (some TUI
+# CLIs have been seen to wipe it). Cheaper than restarting: keeps env, history,
+# and cwd. Run: fixpath
+fixpath() {
+  export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
+  [[ -x /usr/libexec/path_helper ]] && eval "$(/usr/libexec/path_helper -s)"
+  source ~/.zshenv
+  [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+  hash -r
+  print -r -- "PATH restored (${#path} entries)."
 }
 
 # Powerlevel10k config
@@ -110,3 +121,10 @@ export CLAUDE_CODE_SUBAGENT_MODEL=claude-haiku-4-5-20251001
 # Machine-specific overrides (not tracked by git). Sourced LAST so local
 # settings win over everything above.
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
+# bun completions
+[ -s "/Users/awinninge/.bun/_bun" ] && source "/Users/awinninge/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

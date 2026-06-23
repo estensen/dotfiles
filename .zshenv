@@ -1,5 +1,9 @@
 # Environment variables for all shells (interactive and non-interactive)
 
+# Keep PATH duplicate-free as the entries below (and the rc files) prepend to it.
+# First occurrence wins, so ordering is preserved.
+typeset -U path PATH
+
 # Machine-specific env (secrets, work config — not tracked by git)
 [[ -f ~/.zshenv.local ]] && source ~/.zshenv.local
 
